@@ -35,8 +35,8 @@
 #' resampleGenome(A, per.chromosome=TRUE)
 #'
 #'
-#' @importFrom GenomeInfoDb seqlevels
-#' @importFrom GenomeInfoDb seqnames
+#' @importFrom Seqinfo seqlevels
+#' @importFrom Seqinfo seqnames
 #' @importFrom GenomicRanges width
 #' @importFrom GenomicRanges tile
 #' @importFrom GenomicRanges resize

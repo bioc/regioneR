@@ -143,7 +143,7 @@
 #' @importFrom IRanges tolower
 #' @importFrom utils head
 #' @import parallel
-#' @import GenomeInfoDb
+#' @import Seqinfo GenomeInfoDb
 #' 
 #' 
 #' 
@@ -261,13 +261,13 @@ setGenomeToGRanges <- function(gr, genome) {
     if(methods::is(genome, "BSgenome")) {
       #Seems weird, but at least the  "BSgenome.Hsapiens.1000genomes.hs37d5" returns two styles. Use only the first one
       GenomeInfoDb::seqlevelsStyle(gr) <- GenomeInfoDb::seqlevelsStyle(genome)[1] 
-      GenomeInfoDb::seqlevels(gr, pruning.mode="coarse") <- GenomeInfoDb::seqlevels(genome)
-      GenomeInfoDb::seqinfo(gr) <- GenomeInfoDb::seqinfo(genome)  
+      Seqinfo::seqlevels(gr, pruning.mode="coarse") <- Seqinfo::seqlevels(genome)
+      Seqinfo::seqinfo(gr) <- Seqinfo::seqinfo(genome)  
     }
     if(methods::is(genome, "SeqInfo")) {
       GenomeInfoDb::seqlevelsStyle(gr) <- GenomeInfoDb::seqlevelsStyle(genome)[1] 
-      GenomeInfoDb::seqlevels(gr, pruning.mode="coarse") <- GenomeInfoDb::seqlevels(genome)
-      GenomeInfoDb::seqinfo(gr) <- genome
+      Seqinfo::seqlevels(gr, pruning.mode="coarse") <- Seqinfo::seqlevels(genome)
+      Seqinfo::seqinfo(gr) <- genome
     }
   }
   return(gr)
